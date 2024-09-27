@@ -6,10 +6,12 @@ import http from 'http'
 const app = express();
 const server = http.createServer(app);
 
+
+const PORT = process.env.PORT || 1000;
 const io = new Server(server, {
   cors: {
-   // origin: "http://localhost:5173",
-   origin:"https://chat-application-1-seven.vercel.app/",
+    origin: "http://localhost:5173",
+  // origin:"https://chat-application-1-seven.vercel.app/",
     methods: ["GET", "PUT"],
   },
 });
@@ -35,4 +37,4 @@ const io = new Server(server, {
 app.use(cors());
 
 
-server.listen(1000,()=>console.log("Server is running on port 1000"));
+server.listen(PORT,()=>console.log("Server is running on port 1000"));
